@@ -72,11 +72,18 @@ main {
 .add-book {
     font-size: 1.5rem;
     font-weight: bolder;
+    background-color: var(--primary-clr);
+    border: 3px solid black;
+    border-radius: 10px;
     width: 110%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.add-book span {
+    font-size: 1.2rem;
 }
 
 /* ---------- FOOTER ----------*/
