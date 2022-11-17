@@ -5,8 +5,7 @@
 }
 
 :root {
-    --primary-clr: #4C956C;
-    --font-clr: #FEFEE3;
+    --primary-clr: #FBA92C;
 }
 
 body {
@@ -27,23 +26,43 @@ body {
 
 header {
     grid-area: header;
-    
     background-color: var(--primary-clr);
-    color: var(--font-clr);
-    font-size: 2rem;
+    color: black;
+    font-size: 2.5rem;
     font-weight: bolder;
 
     display: flex;
     justify-content: space-around;
     align-items: center;
+    box-shadow: 5px 5px 10px rgba(161, 161, 161, 0.6);
+
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo span {
+    font-size: 3.5rem;
+}
+
+.log-in {
+    background-color: var(--primary-clr);
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border: 3px solid black;
+    width: 4%;
+    height: 35px;
+    border-radius: 10px;
 }
 
 main {
-    background-color: aqua;
     grid-area: main;
 }
 
 footer {
-    background-color: bisque;
     grid-area: footer;
 }
