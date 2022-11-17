@@ -66,6 +66,9 @@ main {
 
     display: grid;
     grid-template-rows: .5fr 1fr;
+}
+
+.button-container {
     justify-self: center;
 }
 
