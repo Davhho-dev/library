@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+:root {
+    --primary-clr: #4C956C;
+    --font-clr: #FEFEE3;
+}
+
 body {
     height: 100vh;
 }
@@ -18,11 +23,19 @@ body {
     "footer";
 }
 
+/* ---------- HEADER - TOP NAVIGATION ----------*/
+
 header {
-    background-color: limegreen;
     grid-area: header;
+    
+    background-color: var(--primary-clr);
+    color: var(--font-clr);
+    font-size: 2rem;
+    font-weight: bolder;
 
     display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 main {
