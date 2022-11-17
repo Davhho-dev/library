@@ -7,3 +7,30 @@
 body {
     height: 100vh;
 }
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: .5fr 5fr .25fr;
+    grid-template-areas: 
+    "header"
+    "main"
+    "footer";
+}
+
+header {
+    background-color: limegreen;
+    grid-area: header;
+
+    display: flex;
+}
+
+main {
+    background-color: aqua;
+    grid-area: main;
+}
+
+footer {
+    background-color: bisque;
+    grid-area: footer;
+}
