@@ -2,11 +2,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Crimson Text"
 }
 
 :root {
     --primary-clr: #FBA92C;
-    /* --secondary-clr: #565656; */
     --shadow-clr: rgba(161, 161, 161, 0.6);
 }
 
@@ -59,16 +59,29 @@ header {
     height: 35px;
     border-radius: 10px;
 }
-
+/* ---------- MAIN - CONTENT ----------*/
 main {
     grid-area: main;
-    background-color: var(--secondary-clr);
+    margin-top: 50px;
+
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+    justify-self: center;
+}
+
+.add-book {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    width: 110%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* ---------- FOOTER ----------*/
 footer {
     grid-area: footer;
-    background-color: var(--secondary-clr);
     font-weight: bold;
     font-size: 1.2rem;
 
