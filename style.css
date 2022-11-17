@@ -65,4 +65,11 @@ main {
 
 footer {
     grid-area: footer;
+    background-color: var(--primary-clr);
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
