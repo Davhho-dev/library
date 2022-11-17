@@ -6,6 +6,8 @@
 
 :root {
     --primary-clr: #FBA92C;
+    /* --secondary-clr: #565656; */
+    --shadow-clr: rgba(161, 161, 161, 0.6);
 }
 
 body {
@@ -33,7 +35,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    box-shadow: 5px 5px 10px rgba(161, 161, 161, 0.6);
+    box-shadow: 5px 5px 10px var(--shadow-clr);
 
 }
 
@@ -60,12 +62,13 @@ header {
 
 main {
     grid-area: main;
+    background-color: var(--secondary-clr);
 }
 
 /* ---------- FOOTER ----------*/
 footer {
     grid-area: footer;
-    background-color: var(--primary-clr);
+    background-color: var(--secondary-clr);
     font-weight: bold;
     font-size: 1.2rem;
 
