@@ -23,7 +23,6 @@ body {
 }
 
 /* ---------- HEADER - TOP NAVIGATION ----------*/
-
 header {
     grid-area: header;
     background-color: var(--primary-clr);
@@ -63,13 +62,19 @@ main {
     grid-area: main;
 }
 
+/* ---------- FOOTER ----------*/
 footer {
     grid-area: footer;
     background-color: var(--primary-clr);
     font-weight: bold;
+    font-size: 1.2rem;
 
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
+}
+
+.footer span {
+    font-size: 1rem;
 }
