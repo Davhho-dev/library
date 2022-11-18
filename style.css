@@ -121,6 +121,11 @@ main {
     to{scale: 1; opacity: 1}
 }
 
+@keyframes popout {
+    from{scale: 1; opacity: 1}
+    to{scale: 0; opacity: 0}
+}
+
 .modal::backdrop {
     background-color: rgba(0, 0, 0, .2);
 }
