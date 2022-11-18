@@ -111,19 +111,34 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 5px 5px 10px var(--shadow-clr);
-
-    animation-name: popin;
-    animation-duration: 0.5s;
+        
 }
 
-@keyframes popin {
-    from{scale: 0; opacity: 0}
-    to{scale: 1; opacity: 1}
+.modal[open] {
+    animation: fade-in .7s forwards;
 }
 
-@keyframes popout {
-    from{scale: 1; opacity: 1}
-    to{scale: 0; opacity: 0}
+.modal[open]::backdrop {
+    animation: fade-in .7s forwards;
+}
+
+.modal[closing] {
+    display: block;
+    animation: fade-out .7s forwards;
+}
+
+.modal[closing]::backdrop {
+    animation: fade-out .7s forwards;
+}
+
+@keyframes fade-in {
+    from{opacity: 0}
+    to{opacity: 1}
+}
+
+@keyframes fade-out {
+    from{opacity: 1}
+    to{opacity: 0}
 }
 
 .modal::backdrop {
