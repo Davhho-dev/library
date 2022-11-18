@@ -11,5 +11,11 @@ addBook.addEventListener("click", () => {
 })
 
 document.addEventListener("click", (e) => {
-    if(e.target.className === "modal") modal.close();
+    if(e.target.className === "modal") {
+        modal.setAttribute("closing", "");
+        modal.addEventListener("animationend", () => {
+            modal.removeAttribute("closing");
+            modal.close();
+        }, {once: true});
+    }
 })
