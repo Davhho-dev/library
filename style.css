@@ -182,6 +182,10 @@ input::placeholder {
     font-weight: bolder;
 }
 
+#pages {
+    width: 84.645%; /*Sets width equal to siblings*/
+}
+
 .read-container {
     display: flex;
     justify-content: center;
