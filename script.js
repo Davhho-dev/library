@@ -9,3 +9,7 @@ submit.addEventListener("click", (e) => {
 addBook.addEventListener("click", () => {
     modal.showModal();
 })
+
+document.addEventListener("click", (e) => {
+    if(e.target.className === "modal") modal.close();
+})
