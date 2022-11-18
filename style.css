@@ -136,6 +136,25 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.read-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#read {
+    width: 20px;
+    height: 20px;
+    accent-color: white;
+    cursor: pointer;
+}
+
 .submit {
     font-size: 1.5rem;
     font-weight: bolder;
@@ -144,6 +163,7 @@ input::placeholder {
     background-color: var(--primary-clr);
     border: 3px solid black;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 /* ---------- FOOTER ----------*/
