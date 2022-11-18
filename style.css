@@ -111,6 +111,18 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 5px 5px 10px var(--shadow-clr);
+
+    animation-name: popin;
+    animation-duration: 0.5s;
+}
+
+@keyframes popin {
+    from{scale: 0; opacity: 0}
+    to{scale: 1; opacity: 1}
+}
+
+.modal:close {
+    
 }
 
 .modal::backdrop {
