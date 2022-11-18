@@ -113,6 +113,10 @@ main {
     box-shadow: 5px 5px 10px var(--shadow-clr);
 }
 
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, .2);
+}
+
 .add-book-form {
     margin: 10px;
 
