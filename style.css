@@ -100,6 +100,7 @@ main {
     font-size: 1.2rem;
 }
 
+/* ---------- MODAL ---------- */ 
 .modal {
     background-color: var(--primary-clr);
     border-radius: 10px;
