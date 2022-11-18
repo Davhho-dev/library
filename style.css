@@ -55,6 +55,7 @@ header {
     font-size: 1.5rem;
     font-weight: bolder;
     border: 3px solid black;
+    outline: 3px solid var(--primary-clr);
     width: 4%;
     height: 40px;
     border-radius: 10px;
