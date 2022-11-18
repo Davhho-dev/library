@@ -56,8 +56,16 @@ header {
     font-weight: bolder;
     border: 3px solid black;
     width: 4%;
-    height: 35px;
+    height: 40px;
     border-radius: 10px;
+    transition: 1s;
+}
+
+.log-in:hover {
+    border: 3px solid var(--primary-clr);
+    background-color: black;
+    color: white;
+    outline-offset: -6px;
 }
 /* ---------- MAIN - CONTENT ----------*/
 main {
