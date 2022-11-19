@@ -60,7 +60,10 @@ function createBookCard(bookObj) {
     author.innerText = bookObj.author;
     pages.innerText = bookObj.pages;
     read.innerText = readCheck(bookObj);
-    card.append(title, author, pages, read);
+    const removeBtn = document.createElement("button");
+    removeBtn.classList.add("remove");
+    removeBtn.innerText = "Remove";
+    card.append(title, author, pages, read, removeBtn);
     cardsContainer.append(card);
 }
 
