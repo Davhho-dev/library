@@ -233,12 +233,12 @@ label {
 }
 
 .author,
-.pages,
-.read {
+.pages {
     font-size: 1.5rem;
 }
 
-.remove {
+.remove,
+.read {
     font-size: 1.5rem;
     font-weight: bolder;
     background-color: var(--primary-clr);
