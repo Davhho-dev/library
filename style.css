@@ -216,6 +216,39 @@ label {
     cursor: pointer;
 }
 
+/* ---------- BOOK CARD ----------*/
+.card {
+    background-color: var(--primary-clr);
+    width: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.title {
+    font-size: 2rem;
+}
+
+.author,
+.pages,
+.read {
+    font-size: 1.5rem;
+}
+
+.remove {
+    font-size: 1.5rem;
+    font-weight: bolder;
+    background-color: var(--primary-clr);
+    border: 3px solid black;
+    border-radius: 10px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+
 /* ---------- FOOTER ----------*/
 footer {
     grid-area: footer;
