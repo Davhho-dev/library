@@ -54,7 +54,7 @@ function createBookCard(bookObj) {
     author.classList.add("author");
     const pages = document.createElement("p");
     pages.classList.add("pages");
-    const read = document.createElement("p");
+    const read = document.createElement("button");
     read.classList.add("read");
     title.innerText = bookObj.title;
     author.innerText = bookObj.author;
@@ -68,6 +68,6 @@ function createBookCard(bookObj) {
 }
 
 function readCheck(bookObj) {
-    if(bookObj.read) return "Already read the book";
-    else return "Have not read the book";
+    if(bookObj.read) return "Read";
+    else return "Not Read";
 }
