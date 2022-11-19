@@ -12,6 +12,7 @@ submit.addEventListener("click", (e) => {
     // console.log(`title: ${title.value}, author: ${author.value}, pages: ${pages.value}, read: ${ifRead.value}`);
     const newBook = new Book(title.value, author.value, pages.value, ifRead.value);
     addBookToLibrary(newBook);
+    modal.close();
 })
 
 
