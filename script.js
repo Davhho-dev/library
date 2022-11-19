@@ -4,13 +4,12 @@ const submit = document.querySelector(".submit");
 const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
-const ifRead = document.getElementById("read");
-
+const read = document.getElementById("read");
 
 submit.addEventListener("click", (e) => {
     e.preventDefault();
     // console.log(`title: ${title.value}, author: ${author.value}, pages: ${pages.value}, read: ${ifRead.value}`);
-    const newBook = new Book(title.value, author.value, pages.value, ifRead.value);
+    const newBook = new Book(title.value, author.value, pages.value, read.checked);
     addBookToLibrary(newBook);
     modal.close();
 })
@@ -55,9 +54,17 @@ function createBookCard(bookObj) {
     author.classList.add("author");
     const pages = document.createElement("p");
     pages.classList.add("pages");
-    title.innerText = `${bookObj.title}`;
-    author.innerText = `${bookObj.author}`;
-    pages.innerText = `${bookObj.pages}`;
-    card.append(title, author, pages);
+    const read = document.createElement("p");
+    read.classList.add("read");
+    title.innerText = bookObj.title;
+    author.innerText = bookObj.author;
+    pages.innerText = bookObj.pages;
+    read.innerText = readCheck(bookObj);
+    card.append(title, author, pages, read);
     cardsContainer.append(card);
+}
+
+function readCheck(bookObj) {
+    if(bookObj.read) return "Already read the book";
+    else return "Have not read the book";
 }
