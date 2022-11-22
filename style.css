@@ -216,16 +216,32 @@ label {
     cursor: pointer;
 }
 
+/* ---------- CARDS CONTAINER ----------*/
+.cards-container {
+    margin: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 300px;
+    gap: 25px;
+
+    
+}
+
 /* ---------- BOOK CARD ----------*/
 .card {
+    grid-column: span 3;
     background-color: var(--primary-clr);
-    width: fit-content;
-
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px var(--shadow-clr);
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
+    
 }
 
 .title {
@@ -244,7 +260,7 @@ label {
     background-color: var(--primary-clr);
     border: 3px solid black;
     border-radius: 10px;
-    width: fit-content;
+    width: 50%;
     cursor: pointer;
 }
 
