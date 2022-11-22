@@ -118,8 +118,8 @@ function checkUserInputs(bookObj) {
 }
 
 function bookExists(bookObj) {
-    const checkTitle = myLibrary.find(book => book.title === bookObj.title);
-    const checkAuthor = myLibrary.find(book => book.author === bookObj.author);
+    const checkTitle = myLibrary.find(book => book.title.toUpperCase() === bookObj.title.toUpperCase());
+    const checkAuthor = myLibrary.find(book => book.author.toUpperCase() === bookObj.author.toUpperCase());
     if(checkTitle && checkAuthor) return true;
     else return false;
 }
