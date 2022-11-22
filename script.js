@@ -5,14 +5,26 @@ const title = document.getElementById("title");
 const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const read = document.getElementById("read");
+const form = document.querySelector(".add-book-form");
 
-submit.addEventListener("click", (e) => {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    // console.log(`title: ${title.value}, author: ${author.value}, pages: ${pages.value}, read: ${ifRead.value}`);
     const newBook = new Book(title.value, author.value, pages.value, read.checked);
-    addBookToLibrary(newBook);
-    modal.close();
+    if(!bookExists(newBook)) {
+        addBookToLibrary(newBook);
+        modal.close();
+    }else {
+        console.log("book already exist");
+    }
 })
+
+// submit.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     // console.log(`title: ${title.value}, author: ${author.value}, pages: ${pages.value}, read: ${ifRead.value}`);
+//     const newBook = new Book(title.value, author.value, pages.value, read.checked);
+//     addBookToLibrary(newBook);
+//     modal.close();
+// })
 
 
 addBook.addEventListener("click", () => {
@@ -44,7 +56,6 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(bookObj) {
     myLibrary.push(bookObj);
-    console.log(myLibrary);
     createBookCard(bookObj);
 }
 
@@ -74,4 +85,18 @@ function createBookCard(bookObj) {
 function readCheck(bookObj) {
     if(bookObj.read) return "Read";
     else return "Not Read";
+}
+
+function checkUserInputs(bookObj) {
+    if(bookObj.title === "") return false;
+    else if(bookObj.author === "") return false;
+    else if(bookObj.pages === "") return false;
+    else return true;
+}
+
+function bookExists(bookObj) {
+    const checkTitle = myLibrary.find(book => book.title === bookObj.title);
+    const checkAuthor = myLibrary.find(book => book.author === bookObj.author);
+    if(checkTitle && checkAuthor) return true;
+    else return false;
 }
