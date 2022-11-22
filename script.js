@@ -16,6 +16,10 @@ submit.addEventListener("click", (e) => {
 
 
 addBook.addEventListener("click", () => {
+    title.value = ""; //Set input values to empty when clicking on add book btn
+    author.value = "";
+    pages.value = "";
+    read.checked = false;
     modal.showModal();
 })
 
