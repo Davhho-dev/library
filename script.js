@@ -42,6 +42,7 @@ document.addEventListener("click", (e) => {
         modal.setAttribute("closing", "");
         modal.addEventListener("animationend", () => {
             modal.removeAttribute("closing");
+            error.innerText = ""; //prevent error message from appearing
             modal.close();
         }, {once: true});
     }
