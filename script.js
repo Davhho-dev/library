@@ -6,15 +6,17 @@ const author = document.getElementById("author");
 const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 const form = document.querySelector(".add-book-form");
+const error = document.querySelector(".error");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    error.innerText = "";
     const newBook = new Book(title.value, author.value, pages.value, read.checked);
     if(!bookExists(newBook)) {
         addBookToLibrary(newBook);
         modal.close();
     }else {
-        console.log("book already exist");
+        error.innerText = "Book already exists";
     }
 })
 
