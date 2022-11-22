@@ -7,6 +7,7 @@ const pages = document.getElementById("pages");
 const read = document.getElementById("read");
 const form = document.querySelector(".add-book-form");
 const error = document.querySelector(".error");
+const cardsContainer = document.querySelector(".cards-container");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -14,20 +15,13 @@ form.addEventListener("submit", (e) => {
     const newBook = new Book(title.value, author.value, pages.value, read.checked);
     if(!bookExists(newBook)) {
         addBookToLibrary(newBook);
+        cardsContainer.innerText = "";
+        createCards();
         modal.close();
     }else {
         error.innerText = "Book already exists";
     }
 })
-
-// submit.addEventListener("click", (e) => {
-//     e.preventDefault();
-//     // console.log(`title: ${title.value}, author: ${author.value}, pages: ${pages.value}, read: ${ifRead.value}`);
-//     const newBook = new Book(title.value, author.value, pages.value, read.checked);
-//     addBookToLibrary(newBook);
-//     modal.close();
-// })
-
 
 addBook.addEventListener("click", () => {
     title.value = ""; //Set input values to empty when clicking on add book btn
@@ -59,31 +53,57 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(bookObj) {
     myLibrary.push(bookObj);
-    createBookCard(bookObj);
+    console.log(myLibrary);
 }
 
-function createBookCard(bookObj) {
-    const cardsContainer = document.querySelector(".cards-container");
+function createCards() {
+    for(const book in myLibrary) {
     const card = document.createElement("div");
     card.classList.add("card");
     const title = document.createElement("h2");
-    title.classList.add("title");
+    title.classList.add('title');
     const author = document.createElement("p");
-    author.classList.add("author");
+    author.classList.add('author');
     const pages = document.createElement("p");
     pages.classList.add("pages");
     const read = document.createElement("button");
     read.classList.add("read");
-    title.innerText = bookObj.title;
-    author.innerText = bookObj.author;
-    pages.innerText = bookObj.pages;
-    read.innerText = readCheck(bookObj);
     const removeBtn = document.createElement("button");
-    removeBtn.classList.add("remove");
+    removeBtn.classList.add('remove');
     removeBtn.innerText = "Remove";
+    title.innerText = myLibrary[book].title;
+    author.innerText = myLibrary[book].author;
+    pages.innerText = myLibrary[book].pages;
+    read.innerText = readCheck(myLibrary[book]);
     card.append(title, author, pages, read, removeBtn);
     cardsContainer.append(card);
+    console.log(`book amount: ${myLibrary.length}`);
+    }
 }
+
+
+// function createBookCard(bookObj) {
+//     const cardsContainer = document.querySelector(".cards-container");
+//     const card = document.createElement("div");
+//     card.classList.add("card");
+//     const title = document.createElement("h2");
+//     title.classList.add("title");
+//     const author = document.createElement("p");
+//     author.classList.add("author");
+//     const pages = document.createElement("p");
+//     pages.classList.add("pages");
+//     const read = document.createElement("button");
+//     read.classList.add("read");
+//     title.innerText = bookObj.title;
+//     author.innerText = bookObj.author;
+//     pages.innerText = bookObj.pages;
+//     read.innerText = readCheck(bookObj);
+//     const removeBtn = document.createElement("button");
+//     removeBtn.classList.add("remove");
+//     removeBtn.innerText = "Remove";
+//     card.append(title, author, pages, read, removeBtn);
+//     cardsContainer.append(card);
+// }
 
 function readCheck(bookObj) {
     if(bookObj.read) return "Read";
