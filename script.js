@@ -81,6 +81,16 @@ function createCards() {
     }
 }
 
+cardsContainer.addEventListener("click", (e) => {
+    const read = document.querySelector(".read");
+    let buttonClass = e.target.className;
+    if(buttonClass = "read") {
+        let readValue = e.target.innerText;
+        if(readValue === "Read") read.innerText = "Not Read";
+        else read.innerText = "Read";
+    }
+})
+
 
 // function createBookCard(bookObj) {
 //     const cardsContainer = document.querySelector(".cards-container");
