@@ -96,6 +96,13 @@ function createCards(bookObj, index) {
             // console.log(myLibrary[bookIndex]);
         }
     });
+
+    removeBtn.addEventListener("click", () => {
+        myLibrary.splice(bookIndex, 1);
+        cardsContainer.innerText = "";
+        generateLibraryCards();
+        // console.log(myLibrary);
+    })
 }
 
 function readCheck(bookObj) {
