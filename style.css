@@ -266,8 +266,16 @@ label {
     border-radius: 10px;
     width: 50%;
     cursor: pointer;
+    transition: 500ms;
 }
 
+.read:hover,
+.remove:hover {
+    border: 3px solid var(--primary-clr);
+    background-color: black;
+    color: white;
+    outline-offset: -6px;
+}
 
 /* ---------- FOOTER ----------*/
 footer {
