@@ -16,7 +16,7 @@ form.addEventListener("submit", (e) => {
     if(!bookExists(newBook)) {
         addBookToLibrary(newBook);
         cardsContainer.innerText = "";
-        createCards();
+        generateLibraryCards();
         modal.close();
     }else {
         error.innerText = "Book already exists";
@@ -56,64 +56,47 @@ function addBookToLibrary(bookObj) {
     console.log(myLibrary);
 }
 
-function createCards() {
-    for(const book in myLibrary) {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    const title = document.createElement("h2");
-    title.classList.add('title');
-    const author = document.createElement("p");
-    author.classList.add('author');
-    const pages = document.createElement("p");
-    pages.classList.add("pages");
-    const read = document.createElement("button");
-    read.classList.add("read");
-    const removeBtn = document.createElement("button");
-    removeBtn.classList.add('remove');
-    removeBtn.innerText = "Remove";
-    title.innerText = myLibrary[book].title;
-    author.innerText = myLibrary[book].author;
-    pages.innerText = myLibrary[book].pages;
-    read.innerText = readCheck(myLibrary[book]);
-    card.append(title, author, pages, read, removeBtn);
-    cardsContainer.append(card);
-    console.log(`book amount: ${myLibrary.length}`);
-    }
+function generateLibraryCards() {
+    myLibrary.forEach((book, index) => {
+        createCards(book, index);
+    });
 }
 
-cardsContainer.addEventListener("click", (e) => {
-    const read = document.querySelector(".read");
-    let buttonClass = e.target.className;
-    if(buttonClass = "read") {
+function createCards(bookObj, index) {
+    let bookIndex = index;
+    const card = document.createElement("div");
+    const title = document.createElement("h2");
+    const author = document.createElement("p");
+    const pages = document.createElement("p");
+    const readBtn = document.createElement("button");
+    const removeBtn = document.createElement("button");
+    card.classList.add("card");
+    title.classList.add("title");
+    author.classList.add("author");
+    pages.classList.add("pages");
+    readBtn.classList.add("read");
+    removeBtn.classList.add("remove");
+    title.innerText = bookObj.title;
+    author.innerText = bookObj.author;
+    pages.innerText = `${bookObj.pages} pages`;
+    readBtn.innerText = readCheck(bookObj);
+    removeBtn.innerText = "Remove";
+    card.append(title, author, pages, readBtn, removeBtn);
+    cardsContainer.append(card);
+
+    readBtn.addEventListener("click", (e) => {
         let readValue = e.target.innerText;
-        if(readValue === "Read") read.innerText = "Not Read";
-        else read.innerText = "Read";
-    }
-})
-
-
-// function createBookCard(bookObj) {
-//     const cardsContainer = document.querySelector(".cards-container");
-//     const card = document.createElement("div");
-//     card.classList.add("card");
-//     const title = document.createElement("h2");
-//     title.classList.add("title");
-//     const author = document.createElement("p");
-//     author.classList.add("author");
-//     const pages = document.createElement("p");
-//     pages.classList.add("pages");
-//     const read = document.createElement("button");
-//     read.classList.add("read");
-//     title.innerText = bookObj.title;
-//     author.innerText = bookObj.author;
-//     pages.innerText = bookObj.pages;
-//     read.innerText = readCheck(bookObj);
-//     const removeBtn = document.createElement("button");
-//     removeBtn.classList.add("remove");
-//     removeBtn.innerText = "Remove";
-//     card.append(title, author, pages, read, removeBtn);
-//     cardsContainer.append(card);
-// }
+        if(readValue === "Read") {
+            readBtn.innerText = "Not Read";
+            myLibrary[bookIndex].read = false;
+            // console.log(myLibrary[bookIndex]);
+        }else {
+            readBtn.innerText = "Read";
+            myLibrary[bookIndex].read = true;
+            // console.log(myLibrary[bookIndex]);
+        }
+    });
+}
 
 function readCheck(bookObj) {
     if(bookObj.read) return "Read";
